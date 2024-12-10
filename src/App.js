@@ -1,9 +1,11 @@
+import {Categories} from './Categories.js';
 import InputView from './InputView.js';
 
 export class App {
   async play() {
     const coaches = await InputView.readName();
-    await InputView.readUnEat(coaches);
+    const unEatList = await InputView.readUnEat(coaches);
+    const categories = new Categories();
   }
 }
 
