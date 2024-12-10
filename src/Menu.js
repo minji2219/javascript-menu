@@ -3,19 +3,19 @@ import {MENU_LIST} from './MenuList.js';
 
 export class Menu {
   constructor(unEatList, categories) {
+    this.recommandList = [];
     this.unEatList = unEatList;
     this.categories = categories;
     this.recommandMenus();
   }
 
   recommandMenus() {
-    let recommandList = [];
     for (const {name, unEat} of this.unEatList) {
       let recommandPerPerson = [];
       while (recommandPerPerson.length < 5) {
         this.recommandMenu(recommandPerPerson, unEat);
       }
-      recommandList.push({
+      this.recommandList.push({
         name: name,
         recommandMenu: recommandPerPerson,
       });
